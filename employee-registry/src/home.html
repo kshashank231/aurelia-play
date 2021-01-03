@@ -1,0 +1,25 @@
+<template>
+  <div class="container">
+    <a class="btn btn-primary" route-href="add-employee" role="button"
+      >Add New Employee</a
+    >
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="e of employees">
+          <td>${e.eid}</td>
+          <td>${e.name}</td>
+          <td>${e.email}</td>
+          <td>${e.phone}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>

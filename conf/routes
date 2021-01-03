@@ -1,0 +1,12 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                               controllers.AppController.index
+
+
+
+
+GET      /api/employee                  controllers.EmployeeController.index
+POST     /api/employee/create           controllers.EmployeeController.create(request: Request)

@@ -1,0 +1,54 @@
+<template>
+  <div class="container">
+    <h3>${heading}</h3>
+    <form submit.trigger="addEmployee()">
+      <div class="form-group row py-sm-3 mb-0">
+        <label class="col-sm-2 col-form-label">Employee Id</label>
+        <div class="col-sm-10">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="ID"
+            value.bind="employeeId"
+          />
+        </div>
+      </div>
+      <div class="form-group row py-sm-3 mb-0">
+        <label class="col-sm-2 col-form-label">Employee Name</label>
+        <div class="col-sm-10">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Name"
+            value.bind="employeeName"
+          />
+        </div>
+      </div>
+      <div class="form-group row py-sm-3 mb-0">
+        <label class="col-sm-2 col-form-label">Employee Email</label>
+        <div class="col-sm-10">
+          <input
+            class="form-control"
+            type="email"
+            placeholder="Email"
+            value.bind="employeeEmail"
+          />
+        </div>
+      </div>
+      <div class="form-group row py-sm-3 mb-0">
+        <label class="col-sm-2 col-form-label">Employee Phone</label>
+        <div class="col-sm-10">
+          <input
+            class="form-control"
+            type="number"
+            placeholder="Phone"
+            value.bind="employeePhone"
+          />
+        </div>
+      </div>
+
+      <a class="btn btn-primary" route-href="home" role="button">Back</a>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</template>
