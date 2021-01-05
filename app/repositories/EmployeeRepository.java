@@ -3,7 +3,6 @@ package repositories;
 import java.util.*;
 import it.unifi.cerm.playmorphia.PlayMorphia;
 import models.Employee;
-import org.bson.types.ObjectId;
 
 import javax.inject.Inject;
 
@@ -19,14 +18,32 @@ public class EmployeeRepository {
 
 
     public List<Employee> findAll() {
-        List<Employee> employees = morphia.
-                datastore().
-                createQuery(Employee.class).
-                asList();
-        return employees;
+        
+        return morphia.
+        datastore().
+        createQuery(Employee.class).
+        asList();
     }
+
 
     public void save(Employee e) {
         morphia.datastore().save(e);
     }
+
+
+    public Employee findById(String id) {
+        
+        return morphia.
+        datastore().
+        createQuery(Employee.class).
+        field("eid").
+        equal(id).
+        get();
+
+    }
+
+    public void findAndUpdate(String id) {
+        return;
+    }
+
 }

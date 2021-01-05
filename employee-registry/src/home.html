@@ -1,8 +1,12 @@
 <template>
-  <div class="container">
-    <a class="btn btn-primary" route-href="add-employee" role="button"
-      >Add New Employee</a
-    >
+  <a
+    class="btn btn-primary"
+    style="margin: 2rem"
+    route-href="add-employee"
+    role="button"
+    >Add New Employee</a
+  >
+  <div class="container" if.bind="employees.length">
     <table class="table">
       <thead>
         <tr>
@@ -10,6 +14,7 @@
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Phone</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -18,8 +23,19 @@
           <td>${e.name}</td>
           <td>${e.email}</td>
           <td>${e.phone}</td>
+          <td>
+            <a
+              class="btn btn-primary"
+              route-href="route: edit-employee; params.bind: {id:e.eid}"
+              role="button"
+              >Edit</a
+            >
+          </td>
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="container" if.bind="!employees.length">
+    <p>No Employee Data to Display</p>
   </div>
 </template>

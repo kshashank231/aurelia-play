@@ -14,17 +14,26 @@ public class EmployeeController extends Controller {
     @Inject
     private EmployeeRepository employee;
 
-    public Result index() {
-        List<Employee>  e = employee.findAll();
-        
-        return ok(Json.toJson(e));
-        
+    public Result getEmployees() {
+        List<Employee>  e = employee.findAll(); 
+        return ok(Json.toJson(e));     
     }
-  
+
     public Result create(Http.Request request) {
         JsonNode json = request.body().asJson();
         Employee newEmp = Json.fromJson(json, Employee.class);
         employee.save(newEmp);
         return ok(Json.toJson("Done!"));
     }
+
+    public Result getEmployee(String id) {
+        Employee  e = employee.findById(id);
+        return ok(Json.toJson(e));  
+    }
+    public Result updateEmployee(String id) {
+        employee.findAndUpdate(id);
+        return ok(Json.toJson("Updated!"));  
+    }
+  
+
 }

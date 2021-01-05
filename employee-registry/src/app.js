@@ -22,6 +22,12 @@ export class App {
         name: "add-employee",
         title: "Add Employee Details",
       },
+      {
+        route: "edit-employee/:id",
+        moduleId: PLATFORM.moduleName("edit-employee"),
+        name: "edit-employee",
+        title: "Edit Employee Details",
+      },
     ]);
   }
 }

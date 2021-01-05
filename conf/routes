@@ -8,5 +8,10 @@ GET     /                               controllers.AppController.index
 
 
 
-GET      /api/employee                  controllers.EmployeeController.index
+GET      /api/employee                  controllers.EmployeeController.getEmployees
+GET      /api/employee/:id              controllers.EmployeeController.getEmployee(id: String)
+
+PUT      /api/employee/edit/:id         controllers.EmployeeController.updateEmployee(id: String)
+
+
 POST     /api/employee/create           controllers.EmployeeController.create(request: Request)
