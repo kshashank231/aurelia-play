@@ -3,15 +3,11 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                               controllers.AppController.index
 
+GET      /api/employee/get                  controllers.EmployeeController.getEmployees
+GET      /api/employee/get/:id              controllers.EmployeeController.getEmployee(id: String)
 
+POST     /api/employee/post                 controllers.EmployeeController.createEmployee(request: Request)
 
-
-GET      /api/employee                  controllers.EmployeeController.getEmployees
-GET      /api/employee/:id              controllers.EmployeeController.getEmployee(id: String)
-
-PUT      /api/employee/edit/:id         controllers.EmployeeController.updateEmployee(id: String)
-
-
-POST     /api/employee/create           controllers.EmployeeController.create(request: Request)
+PUT      /api/employee/put/:id              controllers.EmployeeController.updateEmployee(id: String, request: Request)
+DELETE   /api/employee/delete/:id           controllers.EmployeeController.deleteEmployee(id: String)

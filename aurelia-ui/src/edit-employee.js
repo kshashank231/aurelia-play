@@ -24,7 +24,7 @@ export class EditEmployee {
 
   getEmployee(id) {
     httpClient
-      .fetch("http://localhost:9000/api/employee/" + id)
+      .fetch("http://localhost:9000/api/employee/get/" + id)
       .then((response) => response.json())
       .then((data) => {
         this.employeeId = data.eid;
@@ -37,28 +37,29 @@ export class EditEmployee {
   editEmployee() {
     if (this.employeeName && this.employeeEmail && this.employeePhone) {
       const newEmp = new Employee(
+        this.employeeId,
         this.employeeName,
         this.employeeEmail,
         this.employeePhone
       );
       this.updateData(newEmp);
-      this.employeeName = "";
-      this.employeeEmail = "";
-      this.employeePhone = "";
-
-      this.router.navigateToRoute("home");
     }
   }
 
   updateData(newData) {
     httpClient
-      .fetch("http://localhost:9000/api/employee/edit/" + this.employeeId, {
+      .fetch("http://localhost:9000/api/employee/put/" + this.employeeId, {
         method: "PUT",
         body: JSON.stringify(newData),
       })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        this.employeeName = "";
+        this.employeeEmail = "";
+        this.employeePhone = "";
+
+        this.router.navigateToRoute("home");
       });
   }
 }

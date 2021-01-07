@@ -29,24 +29,25 @@ export class AddEmployee {
         this.employeeEmail,
         this.employeePhone
       );
+
       this.postData(newEmp);
-      this.employeeId = "";
-      this.employeeName = "";
-      this.employeeEmail = "";
-      this.employeePhone = "";
-      this.router.navigateToRoute("home");
     }
   }
 
   postData(myPostData) {
     httpClient
-      .fetch("http://localhost:9000/api/employee/create", {
+      .fetch("http://localhost:9000/api/employee/post", {
         method: "POST",
         body: JSON.stringify(myPostData),
       })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        this.employeeId = "";
+        this.employeeName = "";
+        this.employeeEmail = "";
+        this.employeePhone = "";
+        this.router.navigateToRoute("home");
       });
   }
 }

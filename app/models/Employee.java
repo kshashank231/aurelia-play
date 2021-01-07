@@ -1,13 +1,11 @@
 package models;
 
 import org.bson.types.ObjectId;
-import dev.morphia.annotations.Entity;
-import dev.morphia.annotations.Id;
 
-@Entity(value = "employees", noClassnameStored = true)
+
+
+
 public class Employee  {
-
-    @Id
     private ObjectId _id;
     private String eid;
     private String name;
